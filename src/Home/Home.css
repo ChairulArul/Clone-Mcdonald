@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Hilangkan scroll pada sumbu X */
+  height: auto;
+}
+
+/* Style navigasi */
+nav {
+  cursor: pointer;
+  font-weight: bold; /* Mengubah font-style ke font-weight agar lebih tepat */
+}
+
+/* Carousel styling */
+.carousel-inner {
+  width: 100%; /* Pastikan carousel mengisi lebar kontainer */
+  height: 450px; /* Ubah sesuai kebutuhan */
+  overflow: hidden; /* Menghindari gambar keluar dari area carousel */
+}
+
+.carousel-item {
+  height: 100%; /* Memastikan item carousel memiliki tinggi penuh */
+}
+
+.carousel-item img {
+  width: 100%; /* Mengatur lebar gambar agar responsif */
+  height: 100%; /* Memastikan gambar memenuhi area tanpa deformasi */
+  object-fit: cover; /* Memastikan gambar memenuhi area tanpa deformasi */
+  margin: auto; /* Memusatkan gambar jika ada ruang kosong */
+}
+
+/* Style untuk link di navbar */
+.navbar-nav .nav-link {
+  color: black; /* Warna teks normal */
+  transition: color 0.3s; /* Efek transisi saat hover */
+  padding: 0.5rem 1rem; /* Padding untuk link navbar */
+}
+
+.navbar-nav .nav-link:hover {
+  color: gold !important; /* Ganti warna saat hover */
+}
+
+/* Style dropdown item */
+.dropdown-item {
+  color: black; /* Warna teks normal */
+}
+
+.dropdown-item:hover {
+  color: gold !important; /* Ganti warna saat hover */
+}
+
+/* Style untuk Instagram Section */
+.container-fluid {
+  padding: 0;
+  flex: 1; /* Membuat container mengisi sisa ruang yang tersedia */
+}
+
+/* Responsive untuk perangkat dengan lebar maksimal 768px */
+@media (max-width: 768px) {
+  .container-fluid h1 {
+    font-size: 24px; /* Ukuran font untuk h1 di perangkat kecil */
+  }
+
+  .btn-lg {
+    width: 100%; /* Button lebar penuh pada perangkat kecil */
+    justify-content: center;
+  }
+
+  .carousel-inner {
+    height: 300px; /* Sesuaikan tinggi untuk perangkat lebih kecil */
+  }
+}
+
+/* Responsive untuk perangkat dengan lebar minimal 768px */
+@media (min-width: 768px) {
+  .container-fluid h1 {
+    font-size: 32px; /* Ukuran font untuk h1 di perangkat lebih besar */
+  }
+
+  .btn-lg {
+    width: auto; /* Mengembalikan lebar button ke otomatis */
+  }
+}
+
+/* Style untuk card */
+.card.mb-3.bg-warning.mt-0.pt-0 {
+  margin-bottom: 0 !important; /* Menghilangkan margin bawah */
+  padding-bottom: 0 !important; /* Menghilangkan padding bawah */
+  width: 100%; /* Pastikan card tidak melampaui lebar kontainer */
+}
+
+/* Menghilangkan margin pada footer */
+footer {
+  margin: 0; /* Menghilangkan margin di footer */
+  padding: 0; /* Menghilangkan padding di footer */
+  flex-shrink: 0; /* Menghindari footer menyusut */
+}
+
+footer p {
+  margin: 0; /* Menghilangkan margin pada paragraf di dalam footer */
+}
