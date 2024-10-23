@@ -1,10 +1,11 @@
 import React from "react";
+import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "./Home.css"; // Pastikan untuk menambahkan gaya CSS
+import "./Home.css";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { FaApple } from "react-icons/fa";
-// image
+// image imports
 import Slide1 from "../Images/slide-1.jpg";
 import Slide2 from "../Images/slide-2.jpg";
 import Slide3 from "../Images/slide-3.jpg";
@@ -21,8 +22,32 @@ import child from "../Images/child.png";
 import apk from "../Images/apk.png";
 import end from "../Images/end.png";
 import hubkami from "../Images/hub-kami.png";
+import { Link } from "react-router-dom";
 
-function Home() {
+function Home(props) {
+  // State to manage promotions
+  const [promotions, setPromotions] = useState([
+    {
+      title: "Buat kejutan perayaan spesial dengan cheesburger tower",
+      description:
+        "Pilihan unik untuk merayakan ulang tahun atau momen special lainnya",
+      validity: "Berlaku hingga kiamat",
+      image: card1,
+    },
+    {
+      title: "Promo menarik Mekdi X Voltron",
+      description: "Charge Mobil dapat promo menarik dari mekdi!",
+      validity: "Berlaku hingga hari kiamat",
+      image: card2,
+    },
+    {
+      title: "Promo kartu kredit bank BCA",
+      description: "Ikutin terus event yang kami berikan yaa",
+      validity: "Berlaku hingga hari kiamat",
+      image: card3,
+    },
+  ]);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary mx-auto">
@@ -30,7 +55,7 @@ function Home() {
           <a className="navbar-brand" href="#">
             <img
               src={Mcdonald}
-              style={{ width: "50px", height: "50px" }}
+              style={{ width: "50px", height: "50px", marginLeft: "30%" }}
               alt="McDonald's Logo"
             />
           </a>
@@ -89,6 +114,13 @@ function Home() {
                           Minuman
                         </a>
                       </li>
+                      <li>
+                        <Link to="/Menu" className="dropdown-item">
+                          <p className="fw-bolder text-warning">
+                            Lihat semua Menu
+                          </p>
+                        </Link>
+                      </li>
                     </div>
                     <div className="col-6">
                       <li>
@@ -120,10 +152,13 @@ function Home() {
                   </div>
                 </ul>
               </li>
-              <li className="nav-item fw-medium text-bg-black">
-                <a className="nav-link" href="#" style={{ lineHeight: "50px" }}>
+              <li
+                className="nav-item fw-medium text-bg-black"
+                style={{ marginTop: "12px" }}
+              >
+                <Link to="/Promo" className="nav-link">
                   Promo
-                </a>
+                </Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link disabled" aria-disabled="true">
@@ -178,7 +213,8 @@ function Home() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Makin kenal <br /> Makin sayang
+                  Makin kenal <br />
+                  Makin sayang
                 </a>
                 <ul className="dropdown-menu dropdown-menu-end">
                   <li>
@@ -200,11 +236,11 @@ function Home() {
               </li>
             </ul>
             <form className="d-flex mx-auto mt-2 text" role="search">
-              <FaMapLocationDot className="mt-2 h3" />
+              <FaMapLocationDot className="mt-1 h3" />
               <a
                 href="#"
                 className="ms-3 text-decoration-none text-black"
-                style={{ fontSize: "25px" }}
+                style={{ fontSize: "20px" }}
               >
                 Lokasi
               </a>
@@ -256,54 +292,26 @@ function Home() {
       </div>
 
       {/* menu */}
-      <div class="container-fluid my-5">
+      <div class="container-fluid my-5" data-aos="fade-up">
         <h1 className="text-center fw-bolder mb-5">Promo menarik</h1>
         <div class="card-group">
-          <div class="card">
-            <img src={card1} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title fw-bolder">
-                Buat kejutan perayaan spesial dengan cheesburger tower
-              </h5>
-              <p className="card-text">
-                Pilihan unik untuk merayakan ulang tahun atau momen special
-                lainnya
-              </p>
-              <p class="card-text">
-                <small class="text-body-secondary">Berlaku hingga kiamat</small>
-              </p>
+          {promotions.map((promotion, index) => (
+            <div class="card" key={index}>
+              <img src={promotion.image} className="card-img-top" alt="..." />
+              <div className="card-body">
+                <h5 className="card-title fw-bolder">{promotion.title}</h5>
+                <p className="card-text">{promotion.description}</p>
+                <p class="card-text">
+                  <small class="text-body-secondary">
+                    {promotion.validity}
+                  </small>
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="card">
-            <img src={card2} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Promo menarik Mekdi X Voltron</h5>
-              <p className="card-text">
-                Charge Mobil dapat promo menarikd dari mekdi!
-              </p>
-              <p className="card-text">
-                <small className="text-body-secondary">
-                  Berlaku hingga hari kiamat
-                </small>
-              </p>
-            </div>
-          </div>
-          <div className="card">
-            <img src={card3} className="card-img-top" alt="..." />
-            <div className="card-body">
-              <h5 className="card-title">Promo kartu kredit bank BCA</h5>
-              <p className="card-text">
-                Ikutin terus event yang kami berikan yaa
-              </p>
-              <p className="card-text">
-                <small className="text-body-secondary">
-                  Berlaku hingga hari kiamat
-                </small>
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
         <button
+          onClick={() => (window.location.href = "./Promo")}
           style={{
             backgroundColor: "red",
             padding: "20px",
@@ -321,9 +329,14 @@ function Home() {
         >
           Lihat semua promo
         </button>
-        <h1 className="text-center fw-bold mb-5 mt-5">Menu Favorit</h1>
-        <div className=" row row-cols-1 row-cols-md-4 g-2 m-auto">
-          <div className="col d-flex">
+        <h1 className="text-center fw-bold mb-5 mt-5" data-aos="fade-up">
+          Menu Favorit
+        </h1>
+        <div
+          className=" row row-cols-1 row-cols-md-4 g-2 m-auto"
+          data-aos="fase-up"
+        >
+          <div className="col d-flex" data-aos="fade-up">
             <div className="card flex-fill">
               <img src={bigmac} className="card-img-top" alt="Bigmac" />
               <div className="card-body d-flex flex-column">
@@ -331,7 +344,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="col d-flex">
+          <div className="col d-flex" data-aos="fade-up">
             <div className="card flex-fill">
               <img src={panas} className="card-img-top" alt="Panas 1" />
               <div className="card-body d-flex flex-column">
@@ -344,7 +357,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="col d-flex">
+          <div className="col d-flex" data-aos="fade-up">
             <div className="card flex-fill">
               <img src={panas} className="card-img-top" alt="Panas 2" />
               <div className="card-body d-flex flex-column">
@@ -357,7 +370,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="col d-flex">
+          <div className="col d-flex" data-aos="fade-up">
             <div className="card flex-fill">
               <img src={mcchicken} className="card-img-top" alt="Mc Chicken" />
               <div className="card-body d-flex flex-column">
@@ -372,6 +385,7 @@ function Home() {
           </div>
         </div>
         <button
+          onClick={() => (window.location.href = "/menu")}
           style={{
             backgroundColor: "red",
             padding: "20px",
@@ -386,6 +400,7 @@ function Home() {
             borderRadius: "5px",
             boxShadow: "2px 1px 1px grey",
           }}
+          data-aos="fade-up"
         >
           Lihat semua menu
         </button>
@@ -533,7 +548,7 @@ function Home() {
                 </h1>
 
                 <button
-                  className="btn btn-danger btn-lg shadow"
+                  className="btn btn-danger btn -lg shadow"
                   style={{
                     fontWeight: "bold",
                     textAlign: "center",

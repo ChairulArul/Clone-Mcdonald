@@ -1,0 +1,45 @@
+/* Set carousel item height */
+.carousel-item {
+  height: 600px; /* Atur sesuai kebutuhan Anda */
+}
+
+/* Gambar tidak terpotong dan memenuhi area carousel */
+.carousel-item img {
+  object-fit: cover; /* atau gunakan contain jika ingin gambar tidak terpotong sama sekali */
+  height: 100%;
+  width: 100%;
+}
+.btn-left,
+.btn-middle,
+.btn-right {
+  width: 180px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+.btn-custom {
+  background-color: #e0e0e0; /* Warna abu-abu */
+  border: none;
+  border-radius: 2px;
+  transition: background-color 0.3s; /* Untuk animasi transisi */
+  color: #000; /* Ubah warna teks default jika perlu */
+}
+
+.btn-custom:hover {
+  background-color: #ffc107; /* Warna kuning saat hover */
+  color: #fff; /* Ubah warna teks saat hover */
+}
+
+/* Pastikan tidak ada warna latar belakang yang diubah */
+.btn-custom:focus {
+  background-color: #e0e0e0; /* Pastikan latar belakang tetap sama saat fokus */
+  outline: none; /* Menghilangkan outline saat tombol fokus */
+}
+
+.btn-custom.active {
+  background-color: #ffc107; /* Ubah latar belakang untuk tombol aktif jika diperlukan */
+  color: #fff; /* Ubah warna teks untuk tombol aktif */
+}
